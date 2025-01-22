@@ -1,0 +1,16 @@
+<nav-bar [items]="items" (openEventEmitter)="openCloseCart()" />
+
+<div class="container my-4">
+
+    <h2>Catálogo de Productos</h2>
+
+    <catalog [products]="products" (productEventEmitter)="onAddCart($event)" />
+    @if(showCart){
+
+    <cart-modal
+     [items]="items" 
+     
+     (idProductEventEmitter)="onDeleteCart($event)" 
+     (closeEventEmitter)="openCloseCart()" />
+    }
+</div>
